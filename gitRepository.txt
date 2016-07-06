@@ -1,3 +1,6 @@
 https://github.com/TarasGolub/forMyTests.git
 
+TarasGolub
+standart from UpperCase first char
+
 .
