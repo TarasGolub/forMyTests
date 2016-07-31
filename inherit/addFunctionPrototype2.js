@@ -3,16 +3,14 @@ Function.prototype.defer = function(time) {
 
     return function () {   // дабы мы могли вызвать функ с аргументами, например в 21 строке, возвращаем функцию.
         // var args = arguments; //  сохраняем ее аргументы (чтоб передать в f.apply)
-
         setTimeout(self.apply(null, arguments ), time); // $$$ !!! Зачем мы оборачиваем вызов f.apply в дополнительную анонимную функцию?
     };
 };
 
 Object.defineProperty(Function.prototype, 'defer', {enumerable: false} );
 
-
 function f(a, b) {
-  console.log( a + b );
+    console.log( a + b );
 }
 
 f.defer(1000)(1, 2); // выведет 3 через 1 секунду.

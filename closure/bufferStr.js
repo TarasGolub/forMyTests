@@ -1,21 +1,17 @@
 function makeBuffer() { 
-	var str = '';
-	
-	function buffer(inputStr) {
-	  if(arguments.length) {
-		str += inputStr;
-		return;
-	  } else {
-		return str;
-	  }
+    var str = '';
 
-	}
+    function buffer(inputStr) {
+        if(arguments.length) {
+            str += inputStr;
+            return;
+        } 
+        return str;
+    }
 
-	buffer.clear = function() {str = ''};
+    buffer.clear = function() {str = '';};
 
-	return buffer;
-
-	
+    return buffer;
 }
 
 var buffer = makeBuffer();

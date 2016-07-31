@@ -1,15 +1,15 @@
 function createFunctions(n) {
-  var callbacks = [];
+    var callbacks = [];
 
-  for (var i=0; i<n; i++) {
-    callbacks.push(constFunc(i));
-  }
-  
-  return callbacks;
+    for (var i=0; i<n; i++) {
+        callbacks.push(constFunc(i));
+    }
 
-  function constFunc(v) {
-  	return function(){return v}
-  }
+    return callbacks;
+
+    function constFunc(v) {
+        return function() {return v;};
+    }
 }
 
 var callBack = createFunctions(10);

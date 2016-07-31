@@ -5,7 +5,7 @@ function Hamster() {
 // Hamster.prototype.food = []; // пустой "живот"
 
 Hamster.prototype.found = function(something) {
-  this.food.push(something);
+    this.food.push(something);
 };
 
 // Создаём двух хомяков и кормим первого

@@ -51,78 +51,78 @@ function Fridge(power) {
     parentDisable = this.disable;
     this.disable = function() {
         if (food.length) throw new Error(' ошибка, в холодильнике есть еда');
-        parentDisable;
+        parentDisable();
     };
 
 }
 
 
-// **Код для проверки:
+/***Код для проверки:
 
-// var fridge = new Fridge(200);
-// fridge.addFood("котлета"); // ошибка, холодильник выключен
+var fridge = new Fridge(200);
+fridge.addFood("котлета"); // ошибка, холодильник выключен*/
 
 
-// **Ещё код для проверки:
-// **создать холодильник мощностью 500 (не более 5 еды)
+/***Ещё код для проверки:
+**создать холодильник мощностью 500 (не более 5 еды)
 
-// var fridge = new Fridge(500);
-// fridge.enable();
-// fridge.addFood("котлета");
-// fridge.addFood("сок", "зелень");
-// fridge.addFood("варенье", "пирог", "торт"); // ошибка, слишком много еды
+var fridge = new Fridge(500);
+fridge.enable();
+fridge.addFood("котлета");
+fridge.addFood("сок", "зелень");
+fridge.addFood("варенье", "пирог", "торт"); // ошибка, слишком много еды*/
 
-// **Код использования холодильника без ошибок:
+/***Код использования холодильника без ошибок:
 
-// var fridge = new Fridge(500);
-// fridge.enable();
-// fridge.addFood("котлета");
-// fridge.addFood("сок", "варенье");
+var fridge = new Fridge(500);
+fridge.enable();
+fridge.addFood("котлета");
+fridge.addFood("сок", "варенье");
 
-// var fridgeFood = fridge.getFood();
-// console.log( fridgeFood ); // котлета, сок, варенье
+var fridgeFood = fridge.getFood();
+console.log( fridgeFood ); // котлета, сок, варенье
 
-// // добавление элементов не влияет на еду в холодильнике
-// fridgeFood.push("вилка", "ложка","dfdf");
+// добавление элементов не влияет на еду в холодильнике
+fridgeFood.push("вилка", "ложка","dfdf");
 
-// console.log( fridge.getFood() ); // внутри по-прежнему: котлета, сок, варенье
+console.log( fridge.getFood() ); // внутри по-прежнему: котлета, сок, варенье
+*/
+/*** КОД ПРОВЕРКИ ФИЛЬТРОВ
 
-// ** КОД ПРОВЕРКИ ФИЛЬТРОВ
+var fridge = new Fridge(500);
+fridge.enable();
+fridge.addFood({
+  title: "котлета",
+  calories: 100
+});
+fridge.addFood({
+  title: "сок",
+  calories: 30
+});
+fridge.addFood({
+  title: "зелень",
+  calories: 10
+});
+fridge.addFood({
+  title: "варенье",
+  calories: 150
+});
 
-// var fridge = new Fridge(500);
-// fridge.enable();
-// fridge.addFood({
-//   title: "котлета",
-//   calories: 100
-// });
-// fridge.addFood({
-//   title: "сок",
-//   calories: 30
-// });
-// fridge.addFood({
-//   title: "зелень",
-//   calories: 10
-// });
-// fridge.addFood({
-//   title: "варенье",
-//   calories: 150
-// });
+fridge.addFood ('Собака');
 
-// fridge.addFood ('Собака');
+fridge.removeFood("Собака"); // без эффекта
+console.log( fridge.getFood().length ); // 4
 
-// fridge.removeFood("Собака"); // без эффекта
-// console.log( fridge.getFood().length ); // 4
+var dietItems = fridge.filterFood(function(item) {
+  return item.calories < 50;
+});
 
-// var dietItems = fridge.filterFood(function(item) {
-//   return item.calories < 50;
-// });
+dietItems.forEach(function(item) {
+  console.log( item.title ); // сок, зелень
+  fridge.removeFood(item);
+});
 
-// dietItems.forEach(function(item) {
-//   console.log( item.title ); // сок, зелень
-//   fridge.removeFood(item);
-// });
-
-// console.log( fridge.getFood().length ); // 2
+console.log( fridge.getFood().length ); // 2*/
 
 // ** Код проверки disable
 

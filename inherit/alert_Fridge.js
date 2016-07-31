@@ -1,54 +1,53 @@
 function Machine(power) {
-  this._power = power;
-  this._enabled = false;
+    this._power = power;
+    this._enabled = false;
+    var self = this;
 
-  var self = this;
+    this.enable = function() {
+        self._enabled = true;
+    };
 
-  this.enable = function() {
-    self._enabled = true;
-  };
-
-  this.disable = function() {
-    self._enabled = false;
-  };
+    this.disable = function() {
+        self._enabled = false;
+    };
 }
 
-    function Fridge(power) {
-    	Machine.apply(this, arguments);
-    	var food = [];
+function Fridge(power) {
+    Machine.apply(this, arguments);
 
-    	this.addFood = function() {
-    		
-    		if (!this._enabled) {
-    			throw new Error ('Fridge is off');
-    		};
+    var food = [];
 
-    		if (food.length + arguments.length >= this._power/100) {
-    			throw new Error ('Fridge is fool');
-    		};
+    this.addFood = function() {
+        if (!this._enabled) {
+            throw new Error ('Fridge is off');
+        }
 
-    		for (var i = 0; i < arguments.length; i++) {
-    		 food.push(arguments[i]);
-    		};
-    	};
+        if (food.length + arguments.length >= this._power/100) {
+            throw new Error ('Fridge is fool');
+        }
 
-    	this.getFood = function() {
-    		return food.slice();
-    	};
+        for (var i = 0; i < arguments.length; i++) {
+            food.push(arguments[i]);
+        }
+    };
 
-    	this.filterFood = function(func) {
-    		return food.filter(func);
-    	};
+    this.getFood = function() {
+        return food.slice();
+    };
 
-    	this.removeFood = function(item) {
-    		var idx = food.indexOf(item);
-    		if (idx != -1) food.splice(idx,1);
-    	};
+    this.filterFood = function(func) {
+        return food.filter(func);
+    };
 
-    	var currentDisable = this.disable;
-    	this.disable = function() {
-    		currentDisable.apply(this, arguments);
-    		if (food.length) throw new Error("You cant, there is food in");
-    	};
-    }
+    this.removeFood = function(item) {
+        var idx = food.indexOf(item);
+        if (idx != -1) food.splice(idx,1);
+    };
+
+    var currentDisable = this.disable;
+    this.disable = function() {
+        currentDisable.apply(this, arguments);
+        if (food.length) throw new Error("You cant, there is food in");
+    };
+}
 

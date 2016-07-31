@@ -1,21 +1,22 @@
 function User() {
-  /* ваш код */
-  var surname, firstName;
+    /* ваш код */
+    var surname, firstName;
 
-  this.setSurname = function(name) {
-  	surname = name;
-  }
+    this.setSurname = function(name) {
+        surname = name;
+    };
 
-  this.setFirstName = function(name) {
-  	firstName = name;
-  }
+    this.setFirstName = function(name) {
+        firstName = name;
+    };
 
-  this.getFullName = function() {
-  	return surname + ' ' + firstName
-  }
+    this.getFullName = function() {
+        return surname + ' ' + firstName;
+    };
 }
 
 var user = new User();
+
 user.setFirstName("Петя");
 user.setSurname("Иванов");
 

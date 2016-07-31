@@ -1,10 +1,7 @@
 function applyAll(func) {
-	var args = [].slice.call(arguments, 1);
-
-	return func.apply(null, args);
-
+    var args = [].slice.call(arguments, 1);
+        return func.apply(null, args);
 }
-
 
 // Применить Math.max к аргументам 2, -2, 3
 console.log( applyAll(Math.max, 2, -2, 3) ); // 3

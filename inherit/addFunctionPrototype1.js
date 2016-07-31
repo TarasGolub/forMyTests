@@ -4,9 +4,8 @@ Function.prototype.defer = function(time) {
 
 Object.defineProperty(Function.prototype, 'defer', {enumerable: false} );
 
-
 function f() {
-console.log("привет" );
-}
+    console.log("привет" );
+};
 
 f.defer(1000);
