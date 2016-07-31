@@ -1,40 +1,36 @@
- function eratosphen(n) {
- 	var arr = [];
- 	
- 	for (var i = 2; i <= n ; i++) {
- 		arr[i] = 1;
- 	}
- 	// console.log(arr);
+function eratosphen(n) {
+    var arr = [];
 
- 	var p = 2;
- 	do {
- 		for (var i = p*2; i <=n; i += p) {
- 			arr[i] = 0;
- 		}
+    for (var i = 2; i <= n ; i++) {
+        arr[i] = 1;
+    }
+    // console.log(arr);
 
- 		for (var i=p+1; i<=n; i++) {
- 			if (arr[i] == 1) break;
- 		}
+    var p = 2;
+    do {
+        for (var i = p*2; i <=n; i += p) {
+            arr[i] = 0;
+        }
 
- 		p = i;
+        for (var i=p+1; i<=n; i++) {
+            if (arr[i] == 1) break;
+        }
 
- 	} while (p*p < n);
+        p = i;
+    } while (p*p < n);
 
- 	// console.log(arr);
+    // console.log(arr);
 
- 	var sum = 0;
- 	for (var i = 0; i <=n ; i++) {
- 		if (arr[i]) {
- 			sum += i;
- 			// console.log(i);
- 		}
- 	}
+    var sum = 0;
+    for (var i = 0; i <=n ; i++) {
+        if (arr[i]) {
+            sum += i;
+        // console.log(i);
+        }
+    }
 
- 	return sum;
-
- }
-
-
+    return sum;
+}
 
 console.log(eratosphen(1000));
 

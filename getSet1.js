@@ -1,23 +1,21 @@
 function NamedOne(first, last) {
-// -- SHOULD be changed --
+    // -- SHOULD be changed --
     this.firstName = first;
     this.lastName = last;
     //    this.fullName = this.firstName + ' ' + this.lastName;
 
     Object.defineProperty(this, 'fullName', {
-      get: function() {
-        return this.firstName + ' ' + this.lastName;
-      },
-      
-      set: function(newFullName) {
-        var newName = newFullName.split(' ');
-        if  (newName[0] && newName[1] && newName.length == 2) 
-        {
-          this.firstName = newName[0];
-          this.lastName = newName[1];
-        }
-      }
+        get: function() {
+            return this.firstName + ' ' + this.lastName;
+        },
 
+        set: function(newFullName) {
+            var newName = newFullName.split(' ');
+            if  (newName[0] && newName[1] && newName.length == 2) {
+                this.firstName = newName[0];
+                this.lastName = newName[1];
+            }
+        }
     });
 }
 

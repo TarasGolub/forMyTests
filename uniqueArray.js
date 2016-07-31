@@ -1,21 +1,19 @@
 function unique(arr) {
-  /* ваш код */
-  var obj = {}, arr2 = [];
+    var obj = {}, arr2 = [];
 
-  for (var i = 0; i < arr.length ; i++) {
-  	var k = arr[i].toLowerCase();
-  	obj[k] = arr[i];
-  }
+    for (var i = 0; i < arr.length ; i++) {
+        var k = arr[i].toLowerCase();
+        obj[k] = arr[i];
+    }
 
-  for (key in obj) {
-  	arr2.push(obj[key]);
-  }
+    for (key in obj) {
+        arr2.push(obj[key]);
+    }
 
-  return arr2;
+    return arr2;
 }
 
 var strings = ["кришна", "кришна", "харе", "харе",
-  "харе", "харе", "кришна", "кришна", "8-()"
-];
+    "харе", "харе", "кришна", "кришна", "8-()"];
 
 console.log( unique(strings) ); // кришна, харе, 8-()
