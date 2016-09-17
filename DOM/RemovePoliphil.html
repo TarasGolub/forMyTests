@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>Это</div>
+    <div>Все</div>
+    <div>Элементы DOM</div>
+
+<script>
+    /* ваш код полифилла */
+    if (!Element.prototype.remove) {
+        Element.prototype.remove = function () {
+            if (this.parentNode) {
+                this.parentNode.removeChild(this);
+            }
+        }
+    }
+
+    var elem = document.body.children[0];
+
+    elem.remove(); // <-- вызов должен удалить элемент
+</script>
+
+</body>
+</html>

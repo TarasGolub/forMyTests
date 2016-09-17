@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ol = document.body.appendChild(document.createElement('ol'));
+        while (true) {
+            var newLi = prompt('Enter new item:', '');
+            if (!newLi) break;
+            var li = ol.appendChild(document.createElement('li'));
+            li.appendChild(document.createTextNode(newLi));
+        }
+    </script>
+</body>
+</html>
